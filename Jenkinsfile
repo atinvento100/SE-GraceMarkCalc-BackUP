@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:lts-buster-slim'
-            args '-p 3000:3000'
+            args '-p 5000:5000'
         }
     }
     environment {
@@ -31,8 +31,11 @@ pipeline {
 
     stage('Deliver') {
       steps {
+        sh 'cd frontend'
+        sh 'npm run build'
+        sh 'cd ..'
         sh 'set -x'
-        sh 'npm run dev'
+        sh 'npm start &'
         sh 'sleep 1'
         sh 'echo $! > .pidfile'
         sh 'set +x'
