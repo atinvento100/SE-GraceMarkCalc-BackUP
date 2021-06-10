@@ -23,7 +23,9 @@ pipeline {
       environment {
         CI = 'true'
       }
-      
+      steps {
+        sh 'pwd'
+      }
     }
     }
 }
