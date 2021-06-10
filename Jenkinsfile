@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:lts-buster-slim'
-            args '-p 5000:5000'
+            args '-p 3000:3000'
         }
     }
     environment {
@@ -31,9 +31,6 @@ pipeline {
 
     stage('Deliver') {
       steps {
-        sh 'cd frontend'
-        sh 'npm run build'
-        sh 'cd ..'
         sh './jenkins/scripts/deliver.sh'
         input 'Finished using the web site? (Click "Proceed" to continue)'
         sh './jenkins/scripts/kill.sh'
