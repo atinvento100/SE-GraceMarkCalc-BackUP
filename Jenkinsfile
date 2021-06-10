@@ -31,9 +31,7 @@ pipeline {
 
     stage('Deliver') {
       steps {
-        sh 'cd frontend'
-        sh 'npm run build'
-        sh 'cd ..'
+        sh 'npm run build --prefix frontend'
         sh 'set -x'
         sh 'npm start &'
         sh 'sleep 1'
