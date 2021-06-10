@@ -31,9 +31,9 @@ pipeline {
 
     stage('Deliver') {
       steps {
-        sh 'npm run build --prefix frontend'
+        
         sh 'set -x'
-        sh 'npm start &'
+        sh 'npm run dev'
         sh 'sleep 1'
         sh 'echo $! > .pidfile'
         sh 'set +x'
