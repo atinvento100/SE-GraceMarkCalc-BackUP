@@ -24,24 +24,11 @@ pipeline {
         CI = 'true'
       }
       steps {
-            sh 'pwd'  
+            sh 'npm test --prefix frontend'  
         
         
       }
     }
 
-    stage('Deliver') {
-      steps {
-        sh 'set -x'
-        sh 'npm start'
-        sh 'sleep 1'
-        sh 'echo $! > .pidfile'
-        sh 'set +x'
-           sh 'npm test'
-        input 'Finished using the web site? (Click "Proceed" to continue)'
-        sh 'set -x'
-        sh 'kill $(cat .pidfile)'
-      }
-    }
     }
 }
