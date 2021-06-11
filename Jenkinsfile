@@ -24,7 +24,15 @@ pipeline {
         CI = 'true'
       }
       steps {
-            sh 'set -x'
+            sh 'pwd'  
+        
+        
+      }
+    }
+
+    stage('Deliver') {
+      steps {
+        sh 'set -x'
         sh 'npm start'
         sh 'sleep 1'
         sh 'echo $! > .pidfile'
@@ -32,24 +40,8 @@ pipeline {
            sh 'npm test'
         input 'Finished using the web site? (Click "Proceed" to continue)'
         sh 'set -x'
-        sh 'kill $(cat .pidfile)'  
-        
-        
+        sh 'kill $(cat .pidfile)'
       }
     }
-
-    // stage('Deliver') {
-    //   steps {
-        
-    //     sh 'set -x'
-    //     sh 'npm run dev'
-    //     sh 'sleep 1'
-    //     sh 'echo $! > .pidfile'
-    //     sh 'set +x'
-    //     input 'Finished using the web site? (Click "Proceed" to continue)'
-    //     sh 'set -x'
-    //     sh 'kill $(cat .pidfile)'
-    //   }
-    // }
     }
 }
