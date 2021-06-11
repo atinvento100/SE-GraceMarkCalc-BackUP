@@ -24,7 +24,7 @@ pipeline {
         CI = 'true'
       }
       steps {
-        sh 'pwd'
+        sh 'npm start'
         sh 'npm test'
         
       }
