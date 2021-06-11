@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:14'
-            args '-p 3000:3000'
+            args '-p 5000:5000'
         }
     }
     environment {
@@ -24,8 +24,16 @@ pipeline {
         CI = 'true'
       }
       steps {
+            sh 'set -x'
         sh 'npm start'
-        sh 'npm test'
+        sh 'sleep 1'
+        sh 'echo $! > .pidfile'
+        sh 'set +x'
+           sh 'npm test'
+        input 'Finished using the web site? (Click "Proceed" to continue)'
+        sh 'set -x'
+        sh 'kill $(cat .pidfile)'  
+        
         
       }
     }
