@@ -25,6 +25,7 @@ pipeline {
       }
       steps {
         sh 'pwd'
+        sh 'npm test'
         
       }
     }
