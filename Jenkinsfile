@@ -34,22 +34,22 @@ pipeline {
         failure {
               mail to: 'cb.en.u4cse18245@cb.students.amrita.edu',
                  cc : 'cb.en.u4cse18245@cb.students.amrita.edu'
-                subject: "FAILED: Build ${env.JOB_NAME}", 
-                body: "Build failed ${env.JOB_NAME} build no: ${env.BUILD_NUMBER}.\n\nView the log at:\n ${env.BUILD_URL}\n\nBlue Ocean:\n${env.RUN_DISPLAY_URL}"
+                subject: "FAILED: Build ", 
+                body: "Build failed "
         }
     
     success{
             mail to: 'cb.en.u4cse18245@cb.students.amrita.edu',
                  cc : 'cb.en.u4cse18245@cb.students.amrita.edu'
-                subject: "SUCCESSFUL: Build ${env.JOB_NAME}", 
-                body: "Build Successful ${env.JOB_NAME} build no: ${env.BUILD_NUMBER}\n\nView the log at:\n ${env.BUILD_URL}\n\nBlue Ocean:\n${env.RUN_DISPLAY_URL}"
+                subject: "SUCCESSFUL: Build ", 
+                body: "Build Successful "
         }
         
         aborted{
             mail to: 'cb.en.u4cse18245@cb.students.amrita.edu',
                  cc : 'cb.en.u4cse18245@cb.students.amrita.edu'
-                subject: "ABORTED: Build ${env.JOB_NAME}", 
-                body: "Build was aborted ${env.JOB_NAME} build no: ${env.BUILD_NUMBER}\n\nView the log at:\n ${env.BUILD_URL}\n\nBlue Ocean:\n${env.RUN_DISPLAY_URL}"
+                subject: "ABORTED: Build ", 
+                body: "Build was aborted "
         }
     }
 
