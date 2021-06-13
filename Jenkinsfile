@@ -51,7 +51,7 @@ pipeline {
                     body: "Build $BUILD_NUMBER failed.Go to $BUILD_URL for more info."
             }
         }
-    }
+    
     
     }
 }
