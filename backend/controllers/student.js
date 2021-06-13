@@ -578,8 +578,8 @@ exports.calculateNewGrade = (req, res) => {
   // If the person has failed in any subject one or more
   for (let info of grace) {
     if (
-      parseInt(info.Total) < parseInt(info.P) &&
-      parseInt(info.Total) + parseInt(gm) >= parseInt(info.P)
+      (parseInt(info.Total) < parseInt(info.P)) &&(
+      parseInt(info.Total) + parseInt(gm) >= parseInt(info.P))
     ) {
       maxCredits = Math.max(maxCredits, info.credits);
     }
@@ -587,7 +587,7 @@ exports.calculateNewGrade = (req, res) => {
   // The student has failed and if we add grace mark he will pass
   if (maxCredits != 0) {
     for (let info of grace) {
-      if (info.Total < info.P && info.credits == maxCredits) {
+      if ((info.Total < info.P) && (info.credits == maxCredits)) {
         info.Total = parseInt(info.Total) + parseInt(gm);
         let cid = info.CourseID;
         //Grade to P
@@ -655,8 +655,8 @@ exports.calculateNewGrade = (req, res) => {
 
       //assigning to maximum grade change
       if (
-        info.Grade != "O" &&
-        changeValue * parseInt(info.credits) == passMaxCredits
+        (info.Grade != "O" )&&
+        ((changeValue * parseInt(info.credits)) == passMaxCredits)
       ) {
         // Before change to After Grade change
         if (info.Grade == "P") {
