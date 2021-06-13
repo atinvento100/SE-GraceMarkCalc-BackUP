@@ -50,7 +50,7 @@ pipeline {
             steps {
                 mail to: 'c8.smartgracemarkcalculator@gmail.com',               
                     subject: "Job $JOB_NAME Success" ,
-                    body: "Build $BUILD_NUMBER failed.Go to $BUILD_URL for more info."
+                    body: "Build $BUILD_NUMBER is a success.Go to $BUILD_URL for more info."
             }
         }
     
