@@ -36,6 +36,7 @@ pipeline {
                     subject: "Job $JOB_NAME failed" ,
                     body: "Build $BUILD_NUMBER failed.Go to $BUILD_URL for more info."
             }
+      }
 
     }
 }
