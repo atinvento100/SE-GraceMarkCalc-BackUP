@@ -7,7 +7,7 @@ pipeline {
     }
     environment {
         CI = 'true' 
-        doError = '1'
+        doError = '0'
     
     }
     stages {
