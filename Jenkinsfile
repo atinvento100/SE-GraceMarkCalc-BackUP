@@ -7,6 +7,8 @@ pipeline {
     }
     environment {
         CI = 'true' 
+        doError = '1'
+    
     }
     stages {
         stage('Build') {
