@@ -37,7 +37,7 @@ pipeline {
                 expression { doError == '1' }
             }
             steps {
-                mail to: 'c8.smartgracemarkcalculator@gmail.com',               
+                mail to: 'atinvento@gmail.com',               
                     subject: "Job $JOB_NAME failure" ,
                     body: "Build $BUILD_NUMBER failed.Go to $BUILD_URL for more info."
             }
@@ -48,7 +48,7 @@ pipeline {
                 expression { doError == '0' }
             }
             steps {
-                mail to: 'c8.smartgracemarkcalculator@gmail.com',               
+                mail to: 'atinvento@gmail.com',               
                     subject: "Job $JOB_NAME Success" ,
                     body: "Build $BUILD_NUMBER is a success.Go to $BUILD_URL for more info."
             }
